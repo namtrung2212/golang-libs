@@ -1,0 +1,21 @@
+syntax = "proto3"; 
+
+package GRPC; 
+
+service GRPCService {
+  rpc Execute (GRPC.BaseRequest) returns (GRPC.BaseResponse);
+}
+
+
+message BaseRequest {
+  string service = 1;
+  string method = 2;
+  bytes params = 3;
+  int64 req_at = 4;
+}
+
+message BaseResponse  {
+  string error = 1;
+  bytes result = 2;
+  int64 res_at = 3;
+}
